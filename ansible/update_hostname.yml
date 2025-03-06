@@ -1,0 +1,17 @@
+---
+- name: Update hostname on local system
+  hosts: all
+  become: yes
+  tasks:
+    - name: Set the hostname to 'Vlad-Dmytrenko-lab2'
+      ansible.builtin.hostname:
+        name: "Vlad-Dmytrenko-lab2"
+
+    - name: Update /etc/hostname file
+      ansible.builtin.copy:
+        content: "Vlad-Dmytrenko-lab2"
+        dest: /etc/hostname
+        mode: '0644'
+
+    - name: Ensure the new hostname is applied
+      ansible.builtin.command: hostnamectl set-hostname Vlad-Dmytrenko-lab2

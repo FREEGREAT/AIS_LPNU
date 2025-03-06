@@ -1,0 +1,7 @@
+all:
+  hosts:
+    myserver:
+      ansible_host: 192.168.0.202 
+      ansible_user: vlad 
+      ansible_passwrod: 1
+      ansible_ask_pass: true
